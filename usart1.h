@@ -1,16 +1,19 @@
 #ifndef __USART1_H
 #define __USART1_H
 
+#define USART_DEBUG
+#ifdef USART_DEBUG
+#define PRINT(info) {printf(info);}
+#else
+#define PRINT(info) {}
+#endif
+
 #include "stm32f4xx.h"
 
 #include <stdio.h>
 
-
-
 #define RX_BUFFER_LEN 256
 #define TX_BUFFER_LEN 256
-
-   
 
 extern u8 RX_BUFFER[RX_BUFFER_LEN];//接受缓冲区
 extern u8 TX_BUFFER[TX_BUFFER_LEN];//发送缓冲区
